@@ -1,5 +1,10 @@
 # Multi-Asset Portfolio Risk Dashboard
 
+[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/SebastianIWright/multi-asset-risk-dashboard/blob/main/multi_asset_risk_dashboard.ipynb)
+
+📄 **[Read the 2-page research note (PDF)](Risk_Dashboard_research_note.pdf)** for the question, method, results, and takeaways.
+
+
 Institutional-style risk engine for a $1M multi-asset portfolio, computing VaR, CVaR, stress tests, options Greeks, and statistically validating the VaR model itself with a Kupiec backtest.
 
 ## Problem
@@ -54,9 +59,14 @@ Python · pandas · numpy · scipy · matplotlib · seaborn · arch (GARCH)
 
 ## How to Run
 
+Open `multi_asset_risk_dashboard.ipynb` in Google Colab (or click the badge above) and run all cells top to bottom. No API key needed.
+
+```
+pip install -r requirements.txt
+```
+
 ## Limitations & Next Steps
 
 - Returns are synthetic, not live market data — swapping in `yfinance` for the price pull is the first upgrade (data pipeline is already structured to make this a drop-in change)
 - Add 10-day VaR scaling (√10 rule) per Basel requirements
-- Add GARCH(1,1) time-varying volatility to the parametric VaR (partially scaffolded already)
 - Extend backtesting with the Christoffersen independence test to check whether violations cluster in time, not just how many there are
